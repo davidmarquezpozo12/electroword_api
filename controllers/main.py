@@ -6,7 +6,7 @@ class ElectroWordFrontend(http.Controller):
     @http.route('/products_page', type='http', auth='public', website=True)
     def products_page(self):
         """ Muestra una página con productos en el sitio web """
-        products = request.env['product.product'].sudo().search([])
+        products = request.env['product.template'].sudo().search([])
         return request.render('electroword_api.products_template', {'products': products})
 
     @http.route('/customers_page', type='http', auth='public', website=True)
